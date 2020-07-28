@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^gallery/vault/edit_files/$',views.edit_files,name = 'edit_files'),
     url(r'^gallery/edit/root/$',views.collage_page,name = 'collage_page'),
     url(r'^gallery/edit/root/collage/(?P<value>[\w\-]+)/$',views.collage_second_page,name = 'collage_second'),
+    url(r'^gallery/edit/collage/result/$',views.collage_third_page,name = 'collage_third'),
     url(r'^gallery/edit/root/collage_load/load_vault/$',views.load_vault,name = 'load_vault'),
     url(r'^gallery/format/root/$',views.format_page_one,name = 'format_page_one'),
     url(r'^gallery/format/root/(?P<value>[\w\-]+)/$',views.format_page_one,name = 'format_page_one'),

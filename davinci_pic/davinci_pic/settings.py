@@ -23,7 +23,7 @@ LOGIN_URL = '/davinci/sign_in/'
 
 #DATA_UPLOAD_SIZE
 
-DATA_UPLOAD_MAX_MEMORY_SIZE = 30242880
+DATA_UPLOAD_MAX_MEMORY_SIZE = 100242880
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -34,7 +34,7 @@ SECRET_KEY = '$ju*n2eilc8buzy$*gt%2#ippol_mt@mp=8o4*+x&d=v4w4p_5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []  #'davincivault.pythonanywhere.com'
 
 
 # Application definition

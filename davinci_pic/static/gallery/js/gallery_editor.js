@@ -536,21 +536,16 @@ if(l == layout_no){
       success: function(data) {
                 if(data.val!= undefined && data.val!= null){
 
-                  // $('#row-for-files').append(data.val)
-                  // console.log(data.folder_name)
+                  
                   console.log("success");
+                  if(data.val=="success"){
+                    window.location.href = data.next_url;
+                  }
+                  else{
+                    alert('something wrong!!');
+                  }
                   
-                  // url_ = data.url_output.slice(2,)
-                  url_ = data.url_output
-                  console.log(url_)
-                
-                  $("#final_image").attr("src",url_);
-                  $("#image_full_view").attr("src",url_);
-                  download_url = document.getElementById("final_image").src;
-                  $("#final_image_download").attr("href",download_url);
-                  $(".row_download").removeClass("div-hide");
-                  $(".row_for_preview").find(".image-previews").remove();
-                  
+                                    
                 }
                 else{
                   console.log('failed');

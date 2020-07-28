@@ -57,6 +57,7 @@ def search_node(request,node,item,node_return=None,flag=-1):    #name of item is
 
 
 def index(request):
+        
     form = UserCreationForm()
     register = False
     if request.method == 'POST':
@@ -72,6 +73,11 @@ def index(request):
               os.mkdir(path)
               os.mkdir(path+"/media")
               os.mkdir(path+"/media/output")
+              os.mkdir("./media/"+str(user.username))
+              os.mkdir("./media/"+str(user.username)+"/convert")
+              os.mkdir("./media/"+str(user.username)+"/collage")
+
+     
               root = Treenode(str(user.username))
               root.folder_id = "root$$" + str(user.username)
               with open(path+"/"+str(user.username)+".pickle","wb") as f_obj_write:
@@ -493,6 +499,11 @@ def collage_page(request):
 
 def collage_second_page(request,value):
     if(value=="0"):
+        path_del = "./media/"+ str(request.user.username) +"/collage/" 
+        dirs = os.listdir(path_del)
+        print(dirs)
+        for i in dirs:
+            os.remove(path_del+i)
         print('file length:' + str(len(request.FILES)))
 
         path_url = request.POST["path_url"].split("/")
@@ -500,13 +511,14 @@ def collage_second_page(request,value):
         layout = str(path_url[index_tile])
         path = "./static/gallery/data/"+ str(request.user.username)
              
-        
+        path_to_save = str(request.user.username) + "/collage/" 
         for i in range(len(request.FILES)):
             file_obj = request.FILES[str(i+1)]
             print(file_obj)
-            path_temp = default_storage.save("collage/"+str(i+1) + '.png', ContentFile(file_obj.read()))
+            path_temp = default_storage.save(path_to_save+str(i+1) + '.png', ContentFile(file_obj.read()))
 
-        files = glob("./media/collage/*.png")
+        files = glob("./media/"+ str(request.user.username) +"/collage/*.png")
+        print(files)
         files.sort()
         if(layout == "tile_9-class"):
             tile_9(files,path)
@@ -514,16 +526,10 @@ def collage_second_page(request,value):
             tile_5(files,path)  
         else:
             tile_4(files,path)          
-        for j in files:
-            os.remove(j)
-        path_output = "./static/gallery/data/"+ str(request.user.username) + "/media/output/collage.png"
-        with open(path_output, "rb") as image_file:
-             encoded_string = base64.b64encode(image_file.read())
-            
-        encoded_string = str(encoded_string)[2:-1]    
-        prefix = "data:image/png;base64,"
-        encoded_string = prefix + encoded_string 
-        data = {'val':"success",'url_output':encoded_string}
+        
+           
+        site_url = "http://" + str(request.META['HTTP_HOST']) +"/davinci/gallery/edit/collage/result/"
+        data = {'val':"success",'next_url':site_url}
         return JsonResponse(data) 
 
 
@@ -534,6 +540,16 @@ def collage_second_page(request,value):
     userdata = USER_DATA.objects.get(username = request.user.username)
     p_key=userdata.username
     return render(request,"davinci/collage_second.html",{'pk':p_key,'layout':site_url})   
+
+def collage_third_page(request):
+    userdata = USER_DATA.objects.get(username = request.user.username)
+    p_key=userdata.username
+
+    site_url = "http://" + str(request.META['HTTP_HOST']) +"/static/gallery/data/"
+    site_url = site_url + str(request.user.username) + "/media/output/collage.png"
+    return render(request,"davinci/collage_third.html",{'pk':p_key,'img_url':site_url})
+
+        
 
 
 def load_vault(request):
@@ -594,7 +610,7 @@ def format_page_one(request,value=None):
         return render(request,"davinci/format_one.html",{'pk':p_key})              
 
 def format_process(request,value=None):
-    path = "./media/convert/"
+    path = "./media/"+ str(request.user.username) +"/convert/"
     dirs = os.listdir(path)
     for i in dirs:
         os.remove(path+i)
@@ -603,16 +619,17 @@ def format_process(request,value=None):
     for i in request.FILES.getlist('file'):
         img = i
         count += 1
-        path_temp = default_storage.save("convert/"+str(count) + '.' +value, ContentFile(img.read()))
+        path_temp = default_storage.save(str(request.user.username)+"/convert/"+str(count) + '.' +value, ContentFile(img.read()))
    
     new_value = str(value) + "-" + str(count)
     return redirect("davinci:format_page_third",val=new_value) 
+
 
 def format_page_third(request,val):
     userdata = USER_DATA.objects.get(username = request.user.username)
     p_key=userdata.username
 
-    site_url = "http://" + str(request.META['HTTP_HOST']) +"/media/convert/"
+    site_url = "http://" + str(request.META['HTTP_HOST']) +"/media/"+ str(request.user.username) +"/convert/"
     print(val)
     format_value = val.split("-")[0]
     count = int(val.split("-")[1])

@@ -352,6 +352,16 @@ html{
   width:100%;
 }
 
+
+.collage-result-gap-creator{
+  margin-top:20px;
+}
+
+.tools-heading-col h2{
+  font-weight: 300;
+}
+
+
 #final_image{
   cursor:pointer;
   width:100%;

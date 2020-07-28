@@ -1,0 +1,78 @@
+{% extends 'davinci/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container collage-container">
+   
+    <div class ="row justify-content-md-center">
+        <div class = "col-md-4 text-center text-white tools-heading-col">
+            <h1>Make Your Picture</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+             <div class="collage-result-gap-creator">
+         
+             </div>
+ 
+        </div>
+ 
+    </div>
+
+    <div class ="row justify-content-md-center">
+        <div class = "col-md-4 text-center text-white tools-heading-col">
+            <h2>Your collage is ready!</h2>
+        </div>
+    </div>
+  
+    <div class="row justify-content-md-center row_download">
+        <div class="col-md-6">
+        <div class="final-image-container">
+            {% if img_url %}
+            <img src="{{img_url}}" alt="final_image" id="final_image">
+            {% endif %}
+            
+          </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center row_download">
+        <div class="col-md-4">
+            <a class="btn btn-success" href="{{img_url}}" download="collage.png" href="" id="final_image_download">Download</a>
+        </div>
+     </div>
+
+
+
+         
+<div class="image_fullscreen div-hide">
+    <div class="container">
+        <div class="row justify-content-xs-end row_img_preview_close"> 
+            <div class="col-xs-4">
+                <i class="ion-close-round" id="icon-close"></i>
+            </div>
+            
+        </div>
+        <div class="row justify-content-xs-center"> 
+            <div class="col-xs-12">
+                <div class="image_full_view_container">
+                  <img src="{{img_url}}" alt="image_full_view" id="image_full_view">
+                </div> 
+            </div>
+        </div>
+    </div>
+    
+    
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+{% endblock %}
