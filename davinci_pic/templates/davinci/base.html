@@ -1,0 +1,76 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'davinci/css/ionicons.min.css'%}">
+    <link rel="stylesheet" href="{% static 'gallery/css/gallery_editor.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <title></title>
+  </head>
+
+  <body>
+   
+
+
+    <header class = "gallery-content flex-grow-1 flex-fill">
+
+
+
+        <nav class = "navbar navbar-expand-md text-white nav-custom">
+
+        <div class="container">
+
+          <a class = "navbar-brand" href="">
+             <img src="{% static 'davinci/images/logo.png' %}" alt="logo" class = "logo-gallery">
+          </a>
+              
+             <button class = "navbar-toggler" data-toggle = "collapse" data-target = "#mainnav">
+              
+              <i class = "ion-navicon-round text-white" ></i>
+             </button>
+        
+         <div class="collapse navbar-collapse" id="mainnav">
+          
+           <div class="navbar-nav ml-auto">
+            <span class = "account-span mt-2 mr-3 text-white">Account: {{pk}} </span>
+              <a class = "nav-item nav-link" href="{% url 'davinci:gallery'%}">Dashboard</a>
+              <a class = "nav-item nav-link" href="{% url 'davinci:logout'%}">Signout</a>
+           </div>
+         </div>
+
+   </div>
+   </nav>
+   <div class="container-fluid container-fluid-custom py-5">
+    {% block content %}
+
+    {% endblock %}
+
+  </div>
+    </header>
+    <footer>
+      <div class="footer-jumb">
+      <div class="jumbotron jumbotron-fluid gradient-dark-footer text-white h-100">
+        <div class="container">
+          <p class="lead text-center">Copyright &copy; Davinci Corp.</p>
+        </div>
+      </div>
+    </div>
+    </footer>
+
+
+    
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src = "{% static 'gallery/js/gallery_editor.js' %}"></script>
+  </body>
+</html>

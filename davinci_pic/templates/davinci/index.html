@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+     <link rel="stylesheet" type="text/css" href="{% static 'davinci/css/queries.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'davinci/css/normalize.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'davinci/css/animate.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'davinci/css/grid.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'davinci/css/ionicons.min.css'%}">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'davinci/css/main_davinci.css' %}">
+  </head>
+  <body>
+   <div id="wrapper">
+
+    <header class = "section-head">
+
+      <nav>
+
+
+           <div class="nav-container clearfix">
+
+
+
+            <div class="logo-div ">
+             <img src="{% static 'davinci/images/logo.png' %}" alt="">
+            </div>
+
+            <div class="nav-div nav-div-hide">
+              <ul class = "main-nav">
+                <li> <a class="head-link">Home</a> </li>
+                <li> <a class="features-link">Features</a> </li>
+                <li> <a class="signin-link">Sign in</a> </li>
+                <li> <a href="#" class ="register-link">Register</a> </li>
+
+              </ul>
+            </div>
+             <button type="button" id="toggle-button" class="toggle-button" value="0" >
+             <i class = "ion-navicon-round" ></i>
+             </button>
+            <div class="nav-toggle ">
+
+
+            <div class="nav-div-toggle">
+              <ul class = "main-nav-toggle">
+                <li> <a class="head-link">Home</a> </li>
+                <li> <a class="features-link">Features</a> </li>
+                <li> <a class="signin-link">Sign in</a> </li>
+                <li> <a href="#" class ="register-link">Register</a> </li>
+
+              </ul>
+            </div>
+
+            </div>
+
+ </div>
+
+      </nav>
+      <!-- <div class="nav-line"></div> -->
+
+      <div class="main-heading">
+        <h1>Personalized Image Gallery</h1>
+        <h1>Get it now</h1>
+      </div>
+  </header>
+
+  <section class = "section-features">
+    <div class="js--features">
+
+
+  <div class="row ">
+    <h2>How it works!</h2>
+  </div>
+  <div class="" id="features-line"></div>
+
+  <div class="row">
+    <div class="first-col"></div>
+    <div class="col span-1-of-3  ">
+      <div class="features-icon">
+        <i class = "ion-images"></i>
+      </div>
+       <div class="feature-content">
+         <h3>Customizable Gallery</h3>
+
+         <p>
+           <ul>
+             <li>Enormous Gallery Vault</li>
+             <br>
+
+             <li>Make Collage of your choice</li>
+
+           </ul>
+           </p>
+
+       </div>
+    </div>
+    <div class="first-col"></div>
+    <div class="col span-1-of-3 ">
+      <div class="features-icon">
+       <i class = "ion-ios-crop-strong "></i>
+     </div>
+      <div class="feature-content">
+        <h3>Image Tools</h3>
+
+
+
+        <p>
+          <ul>
+            <li>Resize image to any dimension</li>
+            <br>
+            <li>Reduce Quality</li>
+
+          </ul>
+          </p>
+
+
+      </div>
+
+    </div>
+    <div class="first-col"></div>
+    <div class="col span-1-of-3 ">
+      <div class="features-icon">
+        <i class = "ion-arrow-swap "></i>
+      </div>
+
+      <div class="feature-content">
+        <h3>Format Changer</h3>
+
+        <div class="feature-content-div">
+
+        </div>
+        <p>
+          <ul>
+            <li>Convert image to desired format</li>
+            <br>
+
+            <li>Add alpha channel</li>
+
+          </ul>
+          </p>
+
+
+      </div>
+
+    </div>
+  </div>
+  </div>
+  </section>
+
+  <section class = "section-signin">
+
+
+
+
+    <div class="row">
+
+      <div class="sign-inner-row">
+
+        <div class="sign-inner-row-content">
+         <img src="{% static 'davinci/images/logodav.png' %}" alt="logo-dav" class="davinci-icon">
+        <h3>Signin</h3>
+
+        <form class="signin-form" method="post" action="/davinci/sign_in/">
+          {% csrf_token %}
+          <p>
+          <label for="username">Username  </label>
+          <p>
+          <p>
+          <input type="text" id="username-signin" name="username" placeholder="Enter your username" />
+
+        </p>
+        <p>
+          <label for="password">Password</label>
+        </p>
+        <p>
+          <input type="password" id="password-signin" name="password" placeholder="Enter your password" required/>
+
+        </p>
+        <p>
+          <input type="submit" class ="submit-signin" value="Sign in" required/>
+ 
+        </p>
+        <p>
+         <a href="#" class ="register-link">Sign up</a>
+        </p>
+        </form>
+        </div>
+      </div>
+
+    </div>
+
+</section>
+
+
+
+
+<div class = "div-reg">
+
+      <div class="row">
+
+        <div class="register-inner-row">
+          <div id="close-register" class = "close-register">
+            <i class = "ion-close-round" ></i>
+          </div>
+
+          <div class="register-inner-row-content">
+           <img src="{% static 'davinci/images/logodav.png' %}" alt="logo-dav">
+          <h3>Register</h3>
+          <div class="thankyou div-hidden">
+            <h3>Thank Your For Registering</h3>
+          </div>
+
+          <form  method="post" class = "register-form">
+            {% csrf_token %}
+            {% if reg_form %}
+            {% for field in reg_form %}
+            <p>
+            <label for="{{field.id_for_label}}">{{field.label}}  </label>
+            </p>
+            <p>
+            {{field}}
+
+          </p>
+
+
+          {% endfor %}
+          {% endif %}
+          <p id="form-error"></p>
+          <p>
+            
+            
+            <button type="button" id="submit-register" >Sign Up</button>
+
+          </p>
+          <div id="form-restriction"><i><span>Password should</span>
+           
+            <ul>
+              <li>be atleast 8 character length</li>
+              <li>not be similar</li>
+            </ul></i>
+          </div>
+          </form>
+          
+
+          </div>
+          
+        </div>
+
+      </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+<script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script> -->
+<script type="text/javascript" src="{% static 'davinci/js/jquery.waypoints.min.js'%}"></script>
+<script type="text/javascript" src = "{% static 'davinci/js/main_davinci.js' %}"></script>
+  </body>
+</html>

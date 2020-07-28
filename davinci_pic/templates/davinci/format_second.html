@@ -1,0 +1,67 @@
+{% extends 'davinci/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container format-container">
+    <div class ="row justify-content-md-center">
+        <div class = "col-md-4 text-center text-white format-heading-col">
+            <h1>Format Converter</h1>
+        </div>
+    </div>
+   <div class="row">
+       <div class="col-xs-12">
+            <div class="formatting-gap-creator">
+        
+            </div>
+
+       </div>
+
+   </div>
+
+   <div class="row justify-content-md-center">
+       <div class="col-md-2">
+           <img src="{{url}}" alt="format-icon" class="format-icon-selected">
+
+       </div>
+
+   </div>
+
+   <div class="row">
+    <div class="col-xs-12">
+         <div class="formatting-gap-creator">
+     
+         </div>
+
+    </div>
+
+</div>
+
+
+   <div class="row text-white justify-content-md-center">
+       <div class="col-md-4">
+        <form action="{{form_url}}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file" id="format-image-browse-input" multiple hidden/>
+        <input type="submit" id="format-convert-submit" hidden/>
+        </form>   
+        <button class="btn btn-primary" id="format-image-browse-btn">Browse</button>
+       </div>
+       <div class="col-md-4">
+        <button class="btn btn-primary" id="format-image-convert-btn">Convert</button>
+       </div>
+
+   </div>
+
+   <div class="row justify-content-md-center row_imgconv_preview text-white text-center">
+       <div class="col-md-12 col_imgconv_preview_sample">
+          <h6 class="col_sample_heading">Browse images to convert (Max 5 images) ....</h6>
+       </div>
+
+   </div>
+  
+    
+
+</div>
+
+
+{% endblock %}

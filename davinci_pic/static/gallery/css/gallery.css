@@ -1,0 +1,66 @@
+html{
+  height:100%;
+}
+.logo-gallery{
+
+  width:50px;
+  height:auto;
+}
+
+
+.nav-custom{
+  background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.5)),to(rgba(0,0,0,0.5)));
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+}
+
+.nav-custom .nav-link{
+  color:white;
+}
+
+.nav-custom .nav-link:hover,
+.nav-custom .nav-link:active{
+  color: #e8e8e8;
+}
+
+
+
+/* .header-main-gallery{
+
+
+background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(bg-gallery.jpg);
+background-position: center;
+background-size: cover;
+-moz-background-size: cover;
+background-attachment: fixed;
+height: 100vh;
+} */
+
+.card-row{
+  font-family: 'Lato','Arial', sans-serif;
+  font-weight: 400;
+}
+
+
+
+.jumbotron{
+  margin-bottom:0;
+  max-height:100px;
+}
+
+.footer-jumb p{
+  font-size: 95%;
+}
+.gradient-dark-footer{
+  background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8));
+}
+
+.gallery-content{
+
+/* linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), */
+background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(bg-gallery.jpg);
+background-position: center;
+background-size: cover;
+}
+.gradient-dark{
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+}

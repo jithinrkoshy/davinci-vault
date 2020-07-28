@@ -1,0 +1,88 @@
+html{
+    height:100%;
+  }
+  .logo-gallery{
+  
+    width:50px;
+    height:auto;
+  }
+  
+  
+  .nav-custom{
+    /* background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.5)),to(rgba(0,0,0,0.5)));
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)); */
+  }
+  
+  .nav-custom .nav-link{
+    color:white;
+  }
+  
+  .nav-custom .nav-link:hover,
+  .nav-custom .nav-link:active{
+    color: #e8e8e8;
+  }
+  
+  
+  
+ 
+  
+  
+  
+  .jumbotron{
+    margin-bottom:0;
+
+  }
+  
+  .footer-jumb p{
+    font-size: 95%;
+  }
+
+
+.jumbo-container .jumbotron{
+    min-height: 500px;
+    
+    
+}
+.info{
+    width: 400px;
+    margin: 0 auto;
+   
+}
+.info input[type=text],
+.info input[type=email],
+.info input[type=number]{
+    width: 100%;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.info input[type=submit]{
+    font-size: 90%;
+    border: 2px solid #1fb0ab;
+    display: block;
+    padding: 10px 30px;
+    text-decoration: none;
+    background-color: #1fb0ab;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-transition: background-color 0.5s, border 0.5s;
+    transition: background-color 0.5s, border 0.5s;
+  
+  }
+  
+  .info input[type=submit]:hover,
+  .info input[type=submit]:active{
+    background-color: #23c4bf;
+    border: 2px solid #23c4bf;
+  
+  }

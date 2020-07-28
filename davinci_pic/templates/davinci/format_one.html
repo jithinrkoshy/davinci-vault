@@ -1,0 +1,47 @@
+{% extends 'davinci/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container format-container">
+    <div class ="row justify-content-md-center">
+        <div class = "col-md-4 text-center text-white format-heading-col">
+            <h1>Format Converter</h1>
+        </div>
+    </div>
+   <div class="row">
+       <div class="col-xs-12">
+            <div class="format-gap-creator">
+        
+            </div>
+
+       </div>
+
+   </div>
+   <div class="row row_for_format_selection">
+       <div class="col-md-3 col_for_format_selection" id="png_id">
+           <img src="{% static 'gallery/images/png_icon.png'%}" alt="format-icon">
+
+       </div>
+
+       <div class="col-md-3 col_for_format_selection" id="jpg_id">
+        <img src="{% static 'gallery/images/jpg_icon.png'%}" alt="format-icon">
+
+    </div>
+
+    <div class="col-md-3 col_for_format_selection" id="tiff_id">
+        <img src="{% static 'gallery/images/tiff_icon.png'%}" alt="format-icon">
+
+    </div>
+
+    <div class="col-md-3 col_for_format_selection" id="pdf_id">
+        <img src="{% static 'gallery/images/pdf_icon.png'%}" alt="format-icon">
+
+    </div>
+
+   </div>
+    
+
+</div>
+
+
+{% endblock %}

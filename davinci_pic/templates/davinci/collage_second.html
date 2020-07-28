@@ -1,0 +1,170 @@
+{% extends 'davinci/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container collage-container">
+   
+    <div class ="row justify-content-md-center">
+        <div class = "col-md-4 text-center text-white tools-heading-col">
+            <h1>Make Your Picture</h1>
+        </div>
+    </div>
+
+
+<div class="making-collage-section">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <button class="btn btn-info" id="go-back-mode">Go Back To Layout Page</button>
+            <button class="btn btn-info" id="go-back-main">Go Back To Dashboard</button>
+        </div>
+
+        
+            <div class="col-md-4">
+                <button class="btn btn-outline-warning" id="adding_to_collage">Add Files</button>
+                <button class="btn btn-outline-warning" id="adding_to_collage_from_vault">Add Files From Vault</button>
+                
+                <input type="file" id="files_for_collage" name="files_collage" multiple hidden/>
+                
+                <br />           
+                
+            
+            </div>
+           
+        
+
+        <div class="col-md-2" id="layout-icon">
+            <img src="{{layout}}" width="100px" alt="layout-icon">
+        </div>
+
+
+    </div>
+
+    <div class="collage-preview-go">
+
+
+        <div class="row justify-content-md-center row_for_preview">
+        
+        </div>
+        
+        
+        <div class="row justify-content-md-center">
+            <div class="col-md-6"><button class="btn btn-warning" id="make-collage" type="button">Make Collage</button>
+            </div>
+            
+        </div>
+
+        
+       
+       
+    </div>
+    
+    
+        <div class="row justify-content-md-center row_download div-hide">
+            <div class="col-md-6">
+            <div class="final-image-container">
+                <img src="" alt="final_image" id="final_image">
+                
+              </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center row_download div-hide">
+            <div class="col-md-4">
+                <a class="btn btn-success" download="collage.png" href="" id="final_image_download">Download</a>
+            </div>
+         </div>
+
+    
+
+</div>
+
+ 
+
+  
+    
+<div class="image_fullscreen div-hide">
+    <div class="container">
+        <div class="row justify-content-xs-end row_img_preview_close"> 
+            <div class="col-xs-4">
+                <i class="ion-close-round" id="icon-close"></i>
+            </div>
+            
+        </div>
+        <div class="row justify-content-xs-center"> 
+            <div class="col-xs-12">
+                <div class="image_full_view_container">
+                  <img src="" alt="image_full_view" id="image_full_view">
+                </div> 
+            </div>
+        </div>
+    </div>
+    
+    
+
+</div>
+
+
+
+
+
+<div class="add-vault div-hide" id="add-vault-id">
+
+  <div class="add-vault-close">
+    <div class="container">
+        <div class="row justify-content-xs-end">
+           <div class="col-xs-4">
+            <i class="ion-close-round" id="add-vault-close-btn" style="font-size:100%; margin-left: 20px;"></i> 
+           </div>
+        </div>
+    </div>    
+
+  </div>
+
+  <div class="add-vault-img">
+    <div class="container">
+        <div class="row row_vault_add">
+            
+            
+            
+
+        </div>
+
+    </div>
+
+  </div>
+  <div class="add-vault-btn">
+      <div class="container">
+          <div class="row">
+             <div class="col-md-12">
+                  <hr>
+             </div>
+          </div>
+          <div class="row justify-content-md-end">
+              
+              <div class = "col-md-4">
+                <button class="btn btn-info" id="add-vault-btn-add">Add</button>
+              </div>
+
+              <div class = "col-md-4">
+                <button class="btn btn-info" id="add-vault-btn-cancel">Cancel</button>
+            </div>
+
+          </div>
+
+      </div>
+
+  </div>  
+</div>
+
+
+
+
+
+
+</div>
+
+<!-- <div class="centered text-white div-hide" id="loading">
+    <h3>Loading.....</h3>
+ </div> -->
+
+
+{% endblock %}

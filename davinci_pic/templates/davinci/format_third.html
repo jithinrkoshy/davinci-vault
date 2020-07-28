@@ -1,0 +1,56 @@
+{% extends 'davinci/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container format-container">
+    <div class ="row justify-content-md-center">
+        <div class = "col-md-4 text-center text-white format-heading-col">
+            <h1>Format Converter</h1>
+        </div>
+    </div>
+   <div class="row">
+       <div class="col-xs-12">
+            <div class="formatting-gap-creator">
+        
+            </div>
+
+       </div>
+
+   </div>
+
+   <div class ="row justify-content-md-center">
+        <div class = "col-md-4 text-center text-white format-heading-col">
+            <h2>Your {{format}} image is ready!</h2>
+        </div>
+   </div>
+
+
+   <div class="row">
+        <div class="col-xs-12">
+            <div class="formatting-gap-creator">
+        
+            </div>
+
+        </div>
+
+   </div>
+
+   <div class="row justify-content-md-center">
+       {% if img_data %}
+       {% for url,name in img_data %}
+       <div class="col-md-2 col-final-preview">
+           <img src="{{url}}" class="final-format-preview" alt="final-preview">
+           <a href="{{url}}" download="{{name}}" class="btn btn-success">Download</a>
+       </div>
+
+       {% endfor %}
+        {% endif %}
+       
+
+   </div>
+
+
+</div>
+
+
+{% endblock %}
