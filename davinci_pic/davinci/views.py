@@ -499,22 +499,7 @@ def collage_second_page(request,value):
         index_tile = path_url.index("collage") + 1
         layout = str(path_url[index_tile])
         path = "./static/gallery/data/"+ str(request.user.username)
-        # obj = request.POST["data_base64"]
-        # obj_array = obj.split("****")
-        # print(obj_array[0][-10:])
-        # for i in range(len(obj_array)):
-        #     data_base64 = obj_array[i]
-            
-        #     index_base64 = int(data_base64.find("base64"))
-        #     data_base64 = data_base64[index_base64+7:]
-            
-        #     imgdata = base64.b64decode(data_base64)
-        #     filename = str(i+1) + ".png"
-            
-        #     with open(path +"/media/images/"+ filename , 'wb') as f:
-        #         f.write(imgdata)
-       
-        
+             
         
         for i in range(len(request.FILES)):
             file_obj = request.FILES[str(i+1)]
@@ -559,7 +544,7 @@ def load_vault(request):
     files1 = glob(path+"/*.jpg")
     files2 = glob(path+"/*.png")
     files = files1 + files2
-    # print(files)
+   
     
     if(len(files) < val):
         val = len(files)
@@ -569,7 +554,7 @@ def load_vault(request):
     for k in range(val):
         filename = files[k].split("/")[-1]
         file_str = file_str + filename + "::"
-        # "./static/gallery/data/"+ str(request.user.username) + "/media/output/"+
+        
         path_output = files[k]
         with open(path_output, "rb") as image_file:
                 encoded_string = base64.b64encode(image_file.read())

@@ -376,7 +376,7 @@ $(".collage-mode-select").click(function(){
 
   layout = layout.concat("-","class");   
 
-  window.location.href = "http://"+ window.location.hostname +":8000/davinci/gallery/edit/root/collage/"+ layout;
+  window.location.href = "http://"+ window.location.hostname +"/davinci/gallery/edit/root/collage/"+ layout;
 
 
 
@@ -400,7 +400,7 @@ $("#go-back-mode").click(function(){
   
   
   $("#layout-icon").find("img").remove();
-  window.location.href = "http://"+ window.location.hostname +":8000/davinci/gallery/edit/root/";
+  window.location.href = "http://"+ window.location.hostname +"/davinci/gallery/edit/root/";
   
 
 });
@@ -409,7 +409,7 @@ $("#go-back-main").click(function(){
 
   $("#layout-icon").find("img").remove();
 
-  window.location.href = "http://"+ window.location.hostname +":8000/davinci/gallery/";
+  window.location.href = "http://"+ window.location.hostname +"/davinci/gallery/";
 });
 
 

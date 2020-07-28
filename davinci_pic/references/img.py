@@ -1,2 +1,0 @@
-tcs = {}
-print(type(tcs))
