@@ -6,6 +6,7 @@ app_name ='davinci'
 urlpatterns = [
 
     url(r'^$',views.index,name = 'index'),
+    url(r'^login/(?P<parameter>[\w]+)/$',views.index,name = 'index_failed'),
     url(r'^sign_in/$',views.login_request,name = 'login'),
     url(r'^gallery/info/$',views.info_request,name = 'info'),
     url(r'^gallery/$',views.gallery,name = 'gallery'),

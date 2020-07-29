@@ -403,6 +403,45 @@ html{
   
 }
 
+
+
+/*   Loading in collage      */
+
+#loading{
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+}
+
+
+
+/* Safari */
+@-webkit-keyframes ring {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.loading-animation-class{
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: ring 2s linear infinite; /* Safari */
+  animation: ring 2s linear infinite;
+}
+
+/*   Loading in collage      */
+
 .image_full_view_container{
   width:80%;
   margin: 0 auto;

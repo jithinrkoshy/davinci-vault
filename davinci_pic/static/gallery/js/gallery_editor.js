@@ -1,3 +1,16 @@
+
+
+// document.onreadystatechange = function() { 
+//     if (document.readyState !== "complete") { 
+
+//       $("#loading").removeClass('div-hide');
+
+//     } else { 
+//         $("#loading").addClass('div-hide');
+//     } 
+// }; 
+
+
 $(document).ready(function(){
 
   var dom = $(".row_vault_add_col").find("input[type='checkbox']");
@@ -70,7 +83,15 @@ $(document).ready(function(){
                   },
                   headers: { "X-CSRFToken": csrftoken },
                   dataType: 'json',
+                  beforeSend: function() {
+       
+                    $("#loading").removeClass('div-hide');
+                    
+                },
                   success: function(data) {
+
+                            $("#loading").addClass('div-hide');
+
                             if(data.status!= undefined && data.status!= null){
             
                             
@@ -149,7 +170,15 @@ $(document).ready(function(){
                   },
                   headers: { "X-CSRFToken": csrftoken },
                   dataType: 'json',
+                  beforeSend: function() {
+       
+                    $("#loading").removeClass('div-hide');
+                    
+                },
                   success: function(data) {
+
+                             $("#loading").addClass('div-hide');
+                       
                             if(data.status!= undefined && data.status!= null){
             
                             
@@ -203,7 +232,15 @@ $(document).ready(function(){
                   },
                   headers: { "X-CSRFToken": csrftoken },
                   dataType: 'json',
+                  beforeSend: function() {
+       
+                    $("#loading").removeClass('div-hide');
+                    
+                },
                   success: function(data) {
+
+                             $("#loading").addClass('div-hide');
+                             
                             if(data.status!= undefined && data.status!= null){
             
                             
@@ -242,7 +279,15 @@ $(document).ready(function(){
                   },
                   headers: { "X-CSRFToken": csrftoken },
                   dataType: 'json',
+                  beforeSend: function() {
+       
+                    $("#loading").removeClass('div-hide');
+                    
+                },
                   success: function(data) {
+
+                            $("#loading").addClass('div-hide');
+
                             if(data.val!= undefined && data.val!= null){
             
                               $('#row-for-files').append(data.val)
@@ -324,7 +369,15 @@ $('#file-input').change(function(e){
       },
       headers: { "X-CSRFToken": csrftoken },
       dataType: 'json',
+      beforeSend: function() {
+       
+        $("#loading").removeClass('div-hide');
+        
+    },
       success: function(data) {
+
+              $("#loading").addClass('div-hide');           
+
                 if(data.val!= undefined && data.val!= null){
 
                   // $('#row-for-files').append(data.val)
@@ -533,7 +586,15 @@ if(l == layout_no){
       data: data,
       headers: { "X-CSRFToken": csrftoken },
       dataType: 'json',
+      beforeSend: function() {
+       
+        $("#loading").removeClass('div-hide');
+        
+    },
       success: function(data) {
+
+                  $("#loading").addClass('div-hide');
+                
                 if(data.val!= undefined && data.val!= null){
 
                   
@@ -620,7 +681,14 @@ $("#adding_to_collage_from_vault").click(function(){
                   },
                   headers: { "X-CSRFToken": csrftoken },
                   dataType: 'json',
+                  beforeSend: function() {
+       
+                    $("#loading").removeClass('div-hide');
+                    
+                },
                   success: function(data) {
+
+                             $("#loading").addClass('div-hide');
                             if(data.val!= undefined && data.val!= null){
 
                               var filename = data.filename.split("::")
@@ -685,9 +753,11 @@ $("#add-vault-btn-cancel").click(function(){
 });
 
 
+
+
 $("#add-vault-btn-add").click(function(){
 
-  // $("#loading").removeClass("div-hide");
+  
 
   var dom = $(".row_vault_add_col").find("input[type='checkbox']");
   var img_arr = []
@@ -761,7 +831,7 @@ if(arr.length == layout_no){
 else{
   alert("Select required amount");
 }
-// $("#loading").addClass("div-hide");
+
 
 });
 

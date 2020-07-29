@@ -56,7 +56,12 @@ def search_node(request,node,item,node_return=None,flag=-1):    #name of item is
 
 
 
-def index(request):
+def index(request,parameter=None):
+    if(parameter=="failed"):
+        mistake = "failed"  
+    else:
+        mistake = None
+          
         
     form = UserCreationForm()
     register = False
@@ -95,7 +100,7 @@ def index(request):
               return JsonResponse(data)    
 
 
-    return render(request,'davinci/index.html',context = {'reg_form': form,'register':register})
+    return render(request,'davinci/index.html',context = {'reg_form': form,'register':register,'mistake':mistake})
 
 
 def login_request(request):
@@ -113,9 +118,10 @@ def login_request(request):
                 userdata.save()
                 return redirect("davinci:gallery")
             else: 
-                return redirect("index")
+                return redirect("davinci:index_failed",parameter="failed")
+
     
-    return redirect("index")            
+    return redirect("davinci:index_failed",parameter="failed")            
 
     
 
@@ -534,7 +540,7 @@ def collage_second_page(request,value):
 
 
     else:    
-        value = value + ".png"
+        value = value + ".jpg"
         print(value)
         site_url = "http://" + str(request.META['HTTP_HOST']) +"/static/gallery/images/" + value
     userdata = USER_DATA.objects.get(username = request.user.username)

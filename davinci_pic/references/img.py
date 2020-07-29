@@ -1,0 +1,2 @@
+tcs = {}
+print(type(tcs))
