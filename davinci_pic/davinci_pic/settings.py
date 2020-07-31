@@ -32,9 +32,9 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 100242880
 SECRET_KEY = '$ju*n2eilc8buzy$*gt%2#ippol_mt@mp=8o4*+x&d=v4w4p_5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['davincivault.pythonanywhere.com']  #'davincivault.pythonanywhere.com'
+ALLOWED_HOSTS = []  #'davincivault.pythonanywhere.com'
 
 
 # Application definition

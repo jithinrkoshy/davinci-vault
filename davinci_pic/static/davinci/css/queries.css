@@ -6,7 +6,6 @@
 
     /* background-color: #DAA520 !important; */
     height: 100vh !important;
-    background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.5)),to(rgba(0,0,0,0.5))),url(photography.jpeg) !important;
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(photography.jpeg) !important;
     background-position: center;
     background-size: cover;
@@ -14,7 +13,6 @@
   }
   section{
     height: 100vh !important;
-    background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.5)),to(rgba(0,0,0,0.5))),url(photography.jpeg) !important;
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(photography.jpeg) !important;
     background-position: center;
     background-size: cover;
@@ -247,8 +245,6 @@
 
     /* background-color: #DAA520 !important; */
 
-    background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.5)),to(rgba(0,0,0,0.5))),url(photography.jpeg) !important;
-
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(photography.jpeg) !important;
     /* background-position: center; */
     background-size: cover;
@@ -257,7 +253,6 @@
 
 
   section{
-    background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.5)),to(rgba(0,0,0,0.5))),url(photography.jpeg) !important;
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(photography.jpeg) !important;
     /* background-position: center; */
     background-size: 100% 100%;
@@ -372,15 +367,12 @@ header{
 
   /* background-color: #DAA520 !important; */
 
-  background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.5)),to(rgba(0,0,0,0.5))),url(photography.jpeg) !important;
-
   background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(photography.jpeg) !important;
   background-position: center;
   background-size: cover;
 
 }
 section{
-  background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.5)),to(rgba(0,0,0,0.5))),url(photography.jpeg) !important;
   background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(photography.jpeg) !important;
   background-position: center;
   background-size: cover;

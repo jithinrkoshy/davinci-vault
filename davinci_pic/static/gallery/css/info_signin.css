@@ -75,7 +75,6 @@ input[type=number] {
     color: #fff;
     border-radius: 10px;
     cursor: pointer;
-    -webkit-transition: background-color 0.5s, border 0.5s;
     transition: background-color 0.5s, border 0.5s;
   
   }

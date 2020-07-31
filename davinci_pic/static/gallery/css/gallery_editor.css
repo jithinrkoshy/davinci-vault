@@ -9,7 +9,6 @@ html{
   
   
   .nav-custom{
-    background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.5)),to(rgba(0,0,0,0.5)));
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
   }
   
@@ -69,7 +68,13 @@ html{
   cursor: pointer;
 
 
+  transition: transform 0.1s,-webkit-text-decoration 1s;
+
+
   transition: text-decoration 1s,transform 0.1s;
+
+
+  transition: text-decoration 1s,transform 0.1s,-webkit-text-decoration 1s;
 }
 
 .folder-name-img-wrap:active{
@@ -97,7 +102,13 @@ html{
   cursor: pointer;
 
 
+  transition: transform 0.1s,-webkit-text-decoration 1s;
+
+
   transition: text-decoration 1s,transform 0.1s;
+
+
+  transition: text-decoration 1s,transform 0.1s,-webkit-text-decoration 1s;
 }
 
 .folder-name-img-wrap-with-edit:active{
@@ -126,7 +137,13 @@ html{
     cursor: pointer;
   
   
+    transition: transform 0.1s,-webkit-text-decoration 1s;
+  
+  
     transition: text-decoration 1s,transform 0.1s;
+  
+  
+    transition: text-decoration 1s,transform 0.1s,-webkit-text-decoration 1s;
   }
   
   .folder-name-img-wrap-with-edit-rename:active{
@@ -165,7 +182,11 @@ html{
   cursor: pointer;
   margin-top:60px;
 
+  transition: transform 0.1s,-webkit-text-decoration 1s;
+
   transition: text-decoration 1s,transform 0.1s;
+
+  transition: text-decoration 1s,transform 0.1s,-webkit-text-decoration 1s;
 }
 
 .file-name-img-wrap:active{
@@ -193,7 +214,11 @@ html{
     cursor: pointer;
     margin-top:60px;
   
+    transition: transform 0.1s,-webkit-text-decoration 1s;
+  
     transition: text-decoration 1s,transform 0.1s;
+  
+    transition: text-decoration 1s,transform 0.1s,-webkit-text-decoration 1s;
   }
   
   .file-name-img-wrap-with-edit:active{
@@ -223,7 +248,11 @@ html{
       cursor: pointer;
       margin-top:60px;
     
+      transition: transform 0.1s,-webkit-text-decoration 1s;
+    
       transition: text-decoration 1s,transform 0.1s;
+    
+      transition: text-decoration 1s,transform 0.1s,-webkit-text-decoration 1s;
     }
     
     .file-name-img-wrap-with-edit-rename:active{
@@ -348,9 +377,14 @@ html{
 
 
 
-.image-previews img{
+.image-previews-local img{
   width:100%;
 }
+
+.image-previews-vault img{
+  width:100%;
+}
+
 
 
 .collage-result-gap-creator{
