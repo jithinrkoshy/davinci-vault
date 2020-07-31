@@ -466,7 +466,8 @@ $("#go-back-main").click(function(){
 $("#adding_to_collage").click(function(){
 
   $(".row_for_preview").find(".image-previews-vault").remove();
-
+  var e = $("#files_for_collage");
+  e[0].value = null;
   $("#files_for_collage").click();
   
   
@@ -488,7 +489,9 @@ $('#files_for_collage').change(function(e){
         reader.readAsDataURL(file);
         reader.onload = function(event) {
             var obj = reader.result;
-            id_for_preview = file.name;
+            var no_items = $('.row_for_preview')[0].childElementCount;
+            var id_str = "preview" + no_items.toString(); 
+            id_for_preview = id_str + file.name.toString();
             var html_code=  '<div class="col-md-2 image-previews-local"><img src="" alt="img-preview" id="'+id_for_preview+'"></div>';
             $(".row_for_preview").append(html_code);
             var img = document.getElementById(id_for_preview);
