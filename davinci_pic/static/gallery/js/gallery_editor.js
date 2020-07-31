@@ -1,4 +1,10 @@
 
+function reload(){
+  if(performance.navigation.type == 2){
+ location.reload(true);
+}
+
+}
 
 
 
@@ -59,7 +65,7 @@ $(document).ready(function(){
 
    
       
-        console.log(arr);
+        
 
 
         var csrftoken = Cookies.get('csrftoken');
@@ -86,7 +92,7 @@ $(document).ready(function(){
                             if(data.status!= undefined && data.status!= null){
             
                             
-                              console.log(data)
+                              
                               window.location.href = window.location.href
                             }
                             else{
@@ -147,7 +153,7 @@ $(document).ready(function(){
 
          var old_name = $(this).find(".folder-name")[0].innerText;
          var name_string = old_name.concat("**",val);
-         console.log(val);
+        
 
         var csrftoken = Cookies.get('csrftoken');
         
@@ -173,7 +179,7 @@ $(document).ready(function(){
                             if(data.status!= undefined && data.status!= null){
             
                             
-                              console.log(data)
+                             
                               window.location.href = window.location.href
                             }
                             else{
@@ -209,7 +215,7 @@ $(document).ready(function(){
 
          var old_name = $(this).find(".file-name")[0].innerText;
          var name_string = old_name.concat("**",val);
-         console.log(val);
+         
 
         var csrftoken = Cookies.get('csrftoken');
         
@@ -235,7 +241,7 @@ $(document).ready(function(){
                             if(data.status!= undefined && data.status!= null){
             
                             
-                              console.log(data)
+                              
                               window.location.href = window.location.href
                             }
                             else{
@@ -282,7 +288,7 @@ $(document).ready(function(){
                             if(data.val!= undefined && data.val!= null){
             
                               $('#row-for-files').append(data.val)
-                              console.log(data.folder_name)
+                              
                               window.location.href = window.location.href
                             }
                             else{
@@ -346,7 +352,7 @@ $('#file-input').change(function(e){
     
     
     readRecord(file).then(function(obj) {
-     console.log(obj);
+     
     
     var csrftoken = Cookies.get('csrftoken');
 
@@ -371,9 +377,8 @@ $('#file-input').change(function(e){
 
                 if(data.val!= undefined && data.val!= null){
 
-                  // $('#row-for-files').append(data.val)
-                  // console.log(data.folder_name)
-                  console.log("success");
+                 
+                
                   window.location.href = window.location.href;
                 }
                 else{
@@ -389,7 +394,7 @@ $('#file-input').change(function(e){
 
 }); //end of thenfunction
 
-    console.log(e.target.files[0]);
+   
   }
   else{
     console.log("not image")
@@ -401,7 +406,7 @@ $('#file-input').change(function(e){
 $(".file-name-img-wrap").click(function(){
 
   var img = $(this)[0].firstElementChild;
-  console.log(img.src);
+  
   $("#image_full_view_vault").attr("src",img.src);
   $(".image_fullscreen_vault").removeClass("div-hide");
 
@@ -461,7 +466,7 @@ $("#go-back-main").click(function(){
 $("#adding_to_collage").click(function(){
 
   $(".row_for_preview").find(".image-previews-vault").remove();
-  $(".row_for_preview").find(".image-previews-local").remove();
+
   $("#files_for_collage").click();
   
   
@@ -475,7 +480,7 @@ $('#files_for_collage').change(function(e){
   if(e.target.files[i].type.split("/")[0]=="image"){
    
     var file = e.target.files[i];
-    console.log(e.target.files);
+   
     function readRecord(file) {
       return new Promise(function(resolve, reject) {
         
@@ -514,8 +519,12 @@ function dataURLtoFile(dataurl, filename) {
 
 
 $("#make-collage").click(function(){
+var loc = $('.row_for_preview')[0];
+if(loc.childElementCount!=0){
 
-var loc = $('.row_for_preview').find("div")[0].className;
+
+
+loc = $('.row_for_preview').find("div")[0].className;
 var arr =  loc.split(" ");
 loc = arr[arr.length-1];
 loc = loc.split("-")[2];
@@ -524,7 +533,7 @@ loc = loc.split("-")[2];
 
 var mode = window.location.href.split("/")
 mode = mode[mode.length-2] 
-console.log("mode",mode);
+
 var layout_no = 4
 if(mode == "tile_9-class"){
 
@@ -538,85 +547,99 @@ else if(mode == "tile_5-class"){
 
   layout_no = 4
 }
-console.log("layoutno",layout_no)
-if(loc == "local"){
-
-  
-  var obj = ""  
-  var file_arr = $("#files_for_collage")[0];
-  console.log(file_arr);
-  var l = file_arr.files.length;
-}
-else if(loc == "vault")
-{
-
-  var img = $(".row_for_preview").find("img");
-  l = img.length;
-  var file_img;
-  file_arr = {'files':[]}
-  for(var j=0;j<l;j++){
-    file_img = dataURLtoFile(img[j].src, j.toString() + '.png');
-      file_arr.files.push(file_img)
+var img = $(".row_for_preview").find("img");
+var file_arr = $("#files_for_collage")[0];
+var l = file_arr.files.length;
+console.log(img.length);
+if(img.length == layout_no){
 
 
-  }
-   
-}
-var file;
-var data = new FormData();
-if(l == layout_no){
-  for(var i=0;i<l;i++){
-    count = i+1
-     file = file_arr.files[i];
-     console.log(file)
-     data.append(count.toString(), file);
+    if(loc == "local" && l==layout_no){
 
-  }
-  data.append("path_url",window.location.href)
-  
-  
-  
- 
-  var csrftoken = Cookies.get('csrftoken');
-  
-    $.ajax({
-      url: '/davinci/gallery/edit/root/collage/0/',
-      type: 'POST',
-      processData : false,
-      contentType : false,
-      data: data,
-      headers: { "X-CSRFToken": csrftoken },
-      dataType: 'json',
-      beforeSend: function() {
-       
-        $("#loading").removeClass('div-hide');
-        
-    },
-      success: function(data) {
+      
+      var obj = ""  
+      
+      
+      
+    }
+    else
+    {
 
-                  $("#loading").addClass('div-hide');
-                
-                if(data.val!= undefined && data.val!= null){
+      
+      l = img.length;
+      var file_img;
+      file_arr = {'files':[]}
+      for(var j=0;j<l;j++){
+        file_img = dataURLtoFile(img[j].src, j.toString() + '.png');
+          file_arr.files.push(file_img)
 
-                  
-                  console.log("success");
-                  if(data.val=="success"){
-                    window.location.href = data.next_url;
-                  }
-                  else{
-                    alert('something wrong!!');
-                  }
-                  
-                                    
-                }
-                else{
-                  console.log('failed');
 
-                }
       }
+      
+    }
+    var file;
+    var data = new FormData();
+
+      for(var i=0;i<l;i++){
+        count = i+1
+        file = file_arr.files[i];
+       
+        data.append(count.toString(), file);
+
+      }
+      data.append("path_url",window.location.href)
+      
+      
+      
+    
+      var csrftoken = Cookies.get('csrftoken');
+      
+        $.ajax({
+          url: '/davinci/gallery/edit/root/collage/0/',
+          type: 'POST',
+          processData : false,
+          contentType : false,
+          data: data,
+          headers: { "X-CSRFToken": csrftoken },
+          dataType: 'json',
+          beforeSend: function() {
+          
+            $("#loading").removeClass('div-hide');
+            
+        },
+          success: function(data) {
+
+                      $("#loading").addClass('div-hide');
+                      $(".row_for_preview").find(".image-previews-local").remove();
+                      $(".row_for_preview").find(".image-previews-vault").remove();
+                    
+                    if(data.val!= undefined && data.val!= null){
+
+                      
+                      
+                      if(data.val=="success"){
+                        window.location.href = data.next_url;
+                      }
+                      else{
+                        alert('something wrong!!');
+                      }
+                      
+                                        
+                    }
+                    else{
+                      console.log('failed');
+
+                    }
+          }
 
 
-   });  
+      });  
+
+}
+else{
+  alert("Insert Required amount of images");
+  window.location.href = window.location.href
+}
 
 }
 else{
@@ -669,7 +692,6 @@ $("#adding_to_collage_from_vault").click(function(){
 
    $(".add-vault").removeClass("div-hide");
    $(".row_vault_add").find(".row_vault_add_col").remove();
-   $(".row_for_preview").find(".image-previews-vault").remove();
   $(".row_for_preview").find(".image-previews-local").remove();
 
 
@@ -791,15 +813,15 @@ else if(layout_no == "5"){
 
   layout_no = 4
 }
-if(arr.length == layout_no){
+if(arr.length != 0){
   
-
-    
+  var no_items = $('.row_for_preview')[0].childElementCount;
+  var id_str = "preview" + no_items.toString(); 
   var l = arr.length
 
   for(var j=0; j<l; j++){
 
-  id_for_preview = "preview-" + arr[j].split("-")[1];
+  id_for_preview = id_str + j.toString() +"-" + arr[j].split("-")[1];
   
   var html_code=  '<div class="col-md-2 image-previews-vault"><img src="" alt="img-preview" id="'+id_for_preview+'"></div>';
   $(".row_for_preview").append(html_code);
@@ -878,7 +900,7 @@ for(var i = 0; i<e.target.files.length;i++){
   if(e.target.files[i].type.split("/")[0]=="image"){
    
     var file = e.target.files[i];
-    console.log(e.target.files);
+  
     function readRecord(file) {
       return new Promise(function(resolve, reject) {
         

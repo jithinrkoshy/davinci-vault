@@ -265,6 +265,13 @@ def add_files(request):
         
         imgdata = base64.b64decode(data_base64)
         filename = request.POST['folder_name']
+        
+        space_filename = ""
+        for i in filename:
+            if(i!=" "):
+                space_filename +=i
+
+        filename = space_filename        
         filename = "file/"+ filename
         counter_name = 0
         for i in range(len(node.children)):
@@ -293,6 +300,13 @@ def add_files(request):
         return JsonResponse(data)            
             
     folder_name = request.POST['folder_name']
+
+    space_folder_name = ""
+    for i in folder_name:
+        if(i!=" "):
+            space_folder_name +=i
+
+    folder_name = space_folder_name 
     
     ffm = folder_files_model.objects.get(username = request.user.username)       
     folder_id = ffm.folder_count
@@ -413,6 +427,16 @@ def edit_files(request):
 
         old_name = request.POST["object"].split("**")[0]   
         new_name = request.POST["object"].split("**")[1]
+     
+        space_new_name = ""
+        for i in new_name:
+            if(i!=" "):
+                space_new_name +=i
+
+        new_name = space_new_name 
+
+
+
         flag = 0
         for i in range(len(node.children)):
             if(node.children[i].node_name == "folder/" +new_name):
@@ -458,6 +482,13 @@ def edit_files(request):
 
         old_name = request.POST["object"].split("**")[0]   
         new_name = request.POST["object"].split("**")[1]
+
+        space_new_name = ""
+        for i in new_name:
+            if(i!=" "):
+                space_new_name +=i
+
+        new_name = space_new_name 
 
         flag = 0
         count=0
